@@ -49,11 +49,9 @@ function check_NDK() {
         exit 1
     fi
 }
-# In a nutshell, we need these libs to load 32 bit minilua and compile for 32 bits
+# In a nutshell, we need that to load 32 bit minilua and compile for 32 bits
 function install_32bits() {
-    sudo dpkg --add-architecture i386 && echo "Added i386"
-    sudo apt-get install gcc-multilib && echo "finished installing gcc-multilib wooo"
-
+    sudo apt-get install gcc-multilib && echo "fñFinished installing gcc-multilib"
 }
 ## NOTE: Since https://github.com/koreader/koreader-base/pull/1133, we append -DLUAJIT_SECURITY_STRHASH=0 -DLUAJIT_SECURITY_STRID=0 to TARGET_CFLAGS on !Android platforms.
 ##       Here, we leave it at the defaults, because we have much less control over the environment on Android, so, better be safe than sorry ;).
