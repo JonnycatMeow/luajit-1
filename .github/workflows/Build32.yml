@@ -39,5 +39,5 @@ jobs:
           
       - uses: actions/upload-artifact@v2
         with:
-          name: 64
+          name: 32
           path: luajit/src/libluajit.so
