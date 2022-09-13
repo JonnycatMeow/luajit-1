@@ -22,8 +22,11 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Setup
         run: |
+          sudo apt update -y
+          sudo apt upgrade -y
           sudo apt install make -y
           sudo apt install clang -y
+          sudo apt install build-essential
           sudo chmod -R 777 *
           
       - name: Build
