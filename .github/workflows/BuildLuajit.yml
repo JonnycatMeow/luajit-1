@@ -27,7 +27,6 @@ jobs:
           sudo apt install make -y
           sudo apt install clang -y
           sudo apt install build-essential -y
-          sudo make install
           sudo chmod -R 777 *
           
       - name: Build
