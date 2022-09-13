@@ -22,8 +22,8 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Setup
         run: |
-          sudo install make -y
-          set NDK={$ANDROID_NDK_ROOT}
+          sudo apt install make -y
+          set NDK=${ANDROID_NDK_ROOT}
           
       - name: Build
         run: |
