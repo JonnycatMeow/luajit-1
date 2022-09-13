@@ -34,11 +34,11 @@ if [[ "$2" == "debug" ]]; then
 fi
 
 function check_NDK() {
-    # [[ -n $NDK ]] || export NDK=/opt/android-ndk
-    # if [ ! -d "$NDK" ]; then
-        # echo 'NDK not found. Please set NDK environment variable and have it point to the NDK dir.'
-        # exit 1
-    # fi
+    [[ -n $NDK ]] || export NDK=/opt/android-ndk
+    if [ ! -d "$NDK" ]; then
+        echo 'NDK not found. Please set NDK environment variable and have it point to the NDK dir.'
+        exit 1
+    fi
 
     echo "Using NDKABI ${NDKABI}."
 
