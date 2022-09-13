@@ -32,6 +32,8 @@ jobs:
           
       - name: Build
         run: |
+          ls /home/runner/work/
+          ls /home/runner/work/android-ndk-r15c/
           ./mk-luajit.sh arm64-v8a
           
       - uses: actions/upload-artifact@v2
