@@ -39,5 +39,5 @@ jobs:
           
       - uses: actions/upload-artifact@v2
         with:
-          name: Android Build
+          name: 64
           path: luajit/src/libluajit.so
