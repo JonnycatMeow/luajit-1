@@ -23,6 +23,8 @@ jobs:
       - name: Setup
         run: |
           sudo apt install make -y
+          sudo apt install clang -y
+          sudo apt install ndk-multilib -y
           set NDK=${ANDROID_NDK_ROOT}
           
       - name: Build
