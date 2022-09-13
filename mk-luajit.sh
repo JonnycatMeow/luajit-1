@@ -10,7 +10,7 @@ NDK=${ANDROID_NDK_ROOT}
 
 DEST=$(cd "$(dirname "$0")" && pwd)/build/$1
 # might be linux-x86_64 or darwin-x86-64
-HOST_ARCH="*"
+HOST_ARCH="linux-x86_64"
 
 # Reverse patch will succeed if the patch is already applied.
 # In case of failure, it means we should try to apply the patch.
@@ -70,7 +70,7 @@ case "$1" in
         # Android/ARM, arm64-v8a (ARM64 VFP4, NEON)
         NDKABI=${NDKABI:-21}
         check_NDK
-        TCVER=("${NDK}"/toolchains/aarch64-linux-android-4.*)
+        TCVER=("${NDK}"/toolchains/aarch64-linux-android-4.9)
         NDKP=${TCVER[0]}/prebuilt/${HOST_ARCH}/bin/aarch64-linux-android-
         NDKF="--sysroot ${NDK}/platforms/android-${NDKABI}/arch-arm64"
         make -C luajit amalg install HOST_CC="gcc" CFLAGS="-O2 -pipe" HOST_CFLAGS="-O2 -pipe -mtune=generic" LDFLAGS="" HOST_LDFLAGS="" TARGET_CFLAGS="${CFLAGS}" TARGET_LDFLAGS="${LDFLAGS}" TARGET_LIBS="${EXTRA_LIBS}" TARGET_SONAME="libluajit.so" INSTALL_SONAME="libluajit.so" CROSS="$NDKP" TARGET_FLAGS="${NDKF}" TARGET_SYS=Linux DESTDIR="${DEST}" PREFIX=
