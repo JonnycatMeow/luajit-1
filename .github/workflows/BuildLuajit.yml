@@ -24,7 +24,7 @@ jobs:
         run: |
           sudo apt install make -y
           sudo apt install clang -y
-          set NDK=${ANDROID_NDK_ROOT}
+          env NDK=${ANDROID_NDK_ROOT}
           sudo chmod -R 777 *
           
       - name: Build
