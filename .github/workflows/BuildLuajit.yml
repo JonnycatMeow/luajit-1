@@ -25,7 +25,6 @@ jobs:
           sudo apt update -y
           sudo apt upgrade -y
           sudo apt install make -y
-          sudo make install -y
           sudo apt install clang -y
           sudo apt install build-essential -y
           sudo chmod -R 777 *
