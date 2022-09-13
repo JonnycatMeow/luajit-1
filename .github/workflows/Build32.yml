@@ -29,6 +29,8 @@ jobs:
           sudo chmod -R 777 *
           cd /home/runner/work
           sudo unzip android-ndk-r15c-linux-x86_64.zip
+          sudo dpkg --add-architecture i386
+          sudo apt install libc6:i386
           sudo chmod -R 777 *
           
       - name: Build
