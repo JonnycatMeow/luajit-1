@@ -39,8 +39,13 @@ jobs:
           
       - uses: actions/upload-artifact@v2
         with:
-          name: luajit-Arm
+          name: Dynamic-luajit-Arm
           path: luajit/src/libluajit.so
+
+      - uses: actions/upload-artifact@v2
+        with:
+          name: Staric-luajit-Arm
+          path: luajit/src/libluajit.a
 
   buildArm64:
     # The type of runner that the job will run on
