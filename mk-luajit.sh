@@ -49,7 +49,10 @@ function check_NDK() {
         exit 1
     fi
 }
-
+# In a nutshell, we need that to load 32 bit minilua and compile for 32 bits
+function install_32bits() {
+    sudo apt-get install gcc-multilib && echo "Finished installing gcc-multilib"
+}
 ## NOTE: Since https://github.com/koreader/koreader-base/pull/1133, we append -DLUAJIT_SECURITY_STRHASH=0 -DLUAJIT_SECURITY_STRID=0 to TARGET_CFLAGS on !Android platforms.
 ##       Here, we leave it at the defaults, because we have much less control over the environment on Android, so, better be safe than sorry ;).
 case "$1" in
@@ -60,6 +63,7 @@ case "$1" in
         # Android/ARM, armeabi-v7a (ARMv7 VFP)
         NDKABI=${NDKABI:-14}
         check_NDK
+	install_32bits
         TCVER=("${NDK}"/toolchains/arm-linux-androideabi-4.*)
         NDKP=${TCVER[0]}/prebuilt/${HOST_ARCH}/bin/arm-linux-androideabi-
         NDKF="--sysroot ${NDK}/platforms/android-${NDKABI}/arch-arm"
@@ -79,6 +83,7 @@ case "$1" in
         # Android/x86, x86 (i686 SSE3)
         NDKABI=${NDKABI:-14}
         check_NDK
+	install_32bits
         TCVER=("${NDK}"/toolchains/x86-4.*)
         NDKP=${TCVER[0]}/prebuilt/${HOST_ARCH}/bin/i686-linux-android-
         NDKF="--sysroot ${NDK}/platforms/android-${NDKABI}/arch-x86"
