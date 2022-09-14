@@ -44,7 +44,7 @@ jobs:
 
       - uses: actions/upload-artifact@v2
         with:
-          name: Staric-luajit-Arm
+          name: Static-luajit-Arm
           path: luajit/src/libluajit.a
 
   buildArm64:
@@ -80,8 +80,13 @@ jobs:
           
       - uses: actions/upload-artifact@v2
         with:
-          name: luajit-Aarch64
+          name: Dynamic-luajit-Aarch64
           path: luajit/src/libluajit.so
+
+      - uses: actions/upload-artifact@v2
+        with:
+          name: Static-luajit-Aarch64
+          path: luajit/src/libluajit.a
 
   # This workflow contains a single job called "build"
   buildx86:
@@ -117,8 +122,13 @@ jobs:
           
       - uses: actions/upload-artifact@v2
         with:
-          name: luajit-x86
+          name: Dynamic-luajit-x86
           path: luajit/src/libluajit.so
+
+      - uses: actions/upload-artifact@v2
+        with:
+          name: Static-luajit-x86
+          path: luajit/src/libluajit.a
 
   # This workflow contains a single job called "build"
   buildx86_64:
@@ -154,5 +164,10 @@ jobs:
           
       - uses: actions/upload-artifact@v2
         with:
-          name: luajit-x86_64
+          name: Dynamic-luajit-x86_64
           path: luajit/src/libluajit.so
+
+      - uses: actions/upload-artifact@v2
+        with:
+          name: Static-luajit-x86_64
+          path: luajit/src/libluajit.a
