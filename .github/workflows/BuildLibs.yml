@@ -36,8 +36,8 @@ jobs:
         env:
           ANDROID_NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
         run: |
-          cd /home/runner/work/luajit/luajit
-          ls
+          cd /home/runner/work/luajit/luajit/luajit
+          tree
           ./mk-luajit.sh armeabi-v7a
           
       - uses: actions/upload-artifact@v2
