@@ -12,8 +12,6 @@ jobs:
     
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
 
       # Runs a set of commands using the runners shell
       - name: Setup
@@ -29,12 +27,14 @@ jobs:
           sudo chmod -R 777 *
           cd /home/runner/work
           sudo unzip android-ndk-r15c-linux-x86_64.zip
+          cd ../
+          git clone --recurse-submodules https://github.com/Sirox228/luajit luajit
+          cd luajit
           sudo chmod -R 777 *
           
       - name: Build
         run: |
-          ls /home/runner/work/
-          ls /home/runner/work/android-ndk-r15c/
+          cd luajit
           ./mk-luajit.sh armeabi-v7a
           
       - uses: actions/upload-artifact@v2
