@@ -3,8 +3,7 @@
 # there, a call like one of the following is recommended
 
 # We use NDK r15c for all architectures.
-NDK=ANDROID_NDK_HOME
-echo ${ANDROID_NDK_HOME}
+NDK=/opt/hostedtoolcache/ndk/r15c/x64
 
 # For 32 bits (armeabi-v7a and x86) we built against platform-14 (ICS)
 # For 64 bits (arm64-v8a and x86_64) we built against platform-21 (Lollipop)
