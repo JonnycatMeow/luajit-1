@@ -37,18 +37,17 @@ jobs:
           ANDROID_NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
         run: |
           cd /home/runner/work/luajit/luajit/luajit
-          tree
           ./mk-luajit.sh armeabi-v7a
           
       - uses: actions/upload-artifact@v2
         with:
           name: Dynamic-luajit-Arm
-          path: luajit/src/libluajit.so
+          path: /home/runner/work/luajit/luajit/luajit/luajit/src/libluajit.so
 
       - uses: actions/upload-artifact@v2
         with:
           name: Static-luajit-Arm
-          path: luajit/src/libluajit.a
+          path: /home/runner/work/luajit/luajit/luajit/luajit/src/libluajit.a
 
   buildArm64:
     # The type of runner that the job will run on
