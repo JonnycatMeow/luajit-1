@@ -170,11 +170,13 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Setup
         run: git clone --recurse-submodules https://github.com/Sirox228/luajit
+
+      - name: Setup MSVC
+        uses: ilammy/msvc-dev-cmd@v1
           
       - name: Build
         run: |
           cd luajit/luajit/src
-          ls
           ./msvcbuild.bat
           
       - uses: actions/upload-artifact@v2
