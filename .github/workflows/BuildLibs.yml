@@ -27,9 +27,7 @@ jobs:
           sudo chmod -R 777 /home/runner/work/android-ndk-r15c-linux-x86_64.zip
           cd /home/runner/work
           sudo unzip android-ndk-r15c-linux-x86_64.zip
-          cd ../
           git clone --recurse-submodules https://github.com/Sirox228/luajit luajit
-          cd /home/runner/work/luajit
           sudo chmod -R 777 /home/runner/work/luajit
           sudo chmod -R 777 /home/runner/work/android-ndk-r15c-linux-x86_64
           
