@@ -33,7 +33,7 @@ jobs:
           
       - name: Build
         run: |
-          cd luajit
+          cd /home/runner/work/luajit
           ./mk-luajit.sh armeabi-v7a
           
       - uses: actions/upload-artifact@v2
