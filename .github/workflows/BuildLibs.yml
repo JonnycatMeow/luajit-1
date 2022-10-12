@@ -173,6 +173,7 @@ jobs:
           
       - name: Build
         run: |
+          cd luajit
           ls
           cd luajit/src
           msvcbuild
@@ -180,10 +181,10 @@ jobs:
       - uses: actions/upload-artifact@v2
         with:
           name: luajit-dll-windows
-          path: luajit/src/lua51.dll
+          path: luajit/luajit/src/lua51.dll
 
       - uses: actions/upload-artifact@v2
         with:
           name: luajit-exe-windows
-          path: luajit/src/luajit.exe
+          path: luajit/luajit/src/luajit.exe
 
