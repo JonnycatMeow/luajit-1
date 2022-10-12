@@ -174,7 +174,8 @@ jobs:
       - name: Build
         run: |
           cd luajit/luajit/src
-          msvcbuild.bat
+          ls
+          ./msvcbuild.bat
           
       - uses: actions/upload-artifact@v2
         with:
