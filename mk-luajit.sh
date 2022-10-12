@@ -4,6 +4,7 @@
 
 # We use NDK r15c for all architectures.
 NDK=ANDROID_NDK_HOME
+echo ${ANDROID_NDK_HOME}
 
 # For 32 bits (armeabi-v7a and x86) we built against platform-14 (ICS)
 # For 64 bits (arm64-v8a and x86_64) we built against platform-21 (Lollipop)
