@@ -178,7 +178,6 @@ jobs:
         run: |
           cd luajit/luajit/src
           ./msvcbuild.bat
-          ls
           
       - uses: actions/upload-artifact@v2
         with:
