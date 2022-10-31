@@ -249,7 +249,7 @@ jobs:
       - name: Build
         run: |
           cd luajit/luajit
-          make HOST_CC="gcc -m32"
+          make CFLAGS="-m32" LFLAGS="-melf_i386 -ldl"
           
       - uses: actions/upload-artifact@v2
         with:
