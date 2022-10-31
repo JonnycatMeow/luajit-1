@@ -37,12 +37,12 @@ jobs:
           
       - uses: actions/upload-artifact@v2
         with:
-          name: Dynamic-luajit-Arm
+          name: shared-luajit-Arm
           path: /home/runner/work/luajit/luajit/luajit/luajit/src/libluajit.so
 
       - uses: actions/upload-artifact@v2
         with:
-          name: Static-luajit-Arm
+          name: static-luajit-Arm
           path: /home/runner/work/luajit/luajit/luajit/luajit/src/libluajit.a
 
   buildArm64:
@@ -75,12 +75,12 @@ jobs:
           
       - uses: actions/upload-artifact@v2
         with:
-          name: Dynamic-luajit-Aarch64
+          name: shared-luajit-Aarch64
           path: /home/runner/work/luajit/luajit/luajit/luajit/src/libluajit.so
 
       - uses: actions/upload-artifact@v2
         with:
-          name: Static-luajit-Aarch64
+          name: static-luajit-Aarch64
           path: /home/runner/work/luajit/luajit/luajit/luajit/src/libluajit.a
 
   # This workflow contains a single job called "build"
@@ -114,12 +114,12 @@ jobs:
           
       - uses: actions/upload-artifact@v2
         with:
-          name: Dynamic-luajit-x86
+          name: shared-luajit-x86
           path: /home/runner/work/luajit/luajit/luajit/luajit/src/libluajit.so
 
       - uses: actions/upload-artifact@v2
         with:
-          name: Static-luajit-x86
+          name: static-luajit-x86
           path: /home/runner/work/luajit/luajit/luajit/luajit/src/libluajit.a
 
   # This workflow contains a single job called "build"
@@ -153,12 +153,12 @@ jobs:
           
       - uses: actions/upload-artifact@v2
         with:
-          name: Dynamic-luajit-x86_64
+          name: shared-luajit-x86_64
           path: /home/runner/work/luajit/luajit/luajit/luajit/src/libluajit.so
 
       - uses: actions/upload-artifact@v2
         with:
-          name: Static-luajit-x86_64
+          name: static-luajit-x86_64
           path: /home/runner/work/luajit/luajit/luajit/luajit/src/libluajit.a
 
   build-windows:
@@ -209,14 +209,18 @@ jobs:
         run: |
           cd luajit/luajit
           make
-          ls src
           
       - uses: actions/upload-artifact@v2
         with:
-          name: luajit-lib
+          name: linux-luajit-lib-static
           path: luajit/luajit/src/libluajit.a
 
       - uses: actions/upload-artifact@v2
         with:
-          name: luajit
+          name: linux-luajit-lib-shared
+          path: luajit/luajit/src/libluajit.so
+
+      - uses: actions/upload-artifact@v2
+        with:
+          name: linux-luajit-commandline
           path: luajit/luajit/src/luajit
