@@ -187,7 +187,7 @@ jobs:
       - uses: actions/upload-artifact@v2
         with:
           name: luajit-lib-windows
-          path: luajit/luajit/src/lua51.lib
+          path: luajit/luajit/src/luajit.lib
 
       - uses: actions/upload-artifact@v2
         with:
