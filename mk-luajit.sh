@@ -10,7 +10,7 @@ NDK=/opt/hostedtoolcache/ndk/r15c/x64
 
 DEST=$(cd "$(dirname "$0")" && pwd)/build/$1
 # might be linux-x86_64 or darwin-x86-64
-HOST_ARCH="linux-x86_64"
+HOST_ARCH="darwin-x86_64"
 
 # Reverse patch will succeed if the patch is already applied.
 # In case of failure, it means we should try to apply the patch.
@@ -31,10 +31,11 @@ HOST_ARCH="linux-x86_64"
 #if [[ "$2" == "debug" ]]; then
 #    do_patch "koreader-luajit-mcode-debug.patch"
 #    EXTRA_LIBS="-landroid -llog"
-#fi
+#fi 
 
+# finds the path for macos (you can change this) 
 function check_NDK() {
-    [[ -n $NDK ]] || export NDK=/opt/android-ndk
+    [[ -n $NDK ]] || export NDK=/opt/android-ndk 
     if [ ! -d "$NDK" ]; then
         echo 'NDK not found. Please set NDK environment variable and have it point to the NDK dir.'
         exit 1
@@ -48,10 +49,6 @@ function check_NDK() {
         echo 'NDK not of the right version, please update to NDK version 15 or higher.'
         exit 1
     fi
-}
-# In a nutshell, we need that to load 32 bit minilua and compile for 32 bits
-function install_32bits() {
-    sudo apt-get install gcc-multilib && echo "Finished installing gcc-multilib"
 }
 ## NOTE: Since https://github.com/koreader/koreader-base/pull/1133, we append -DLUAJIT_SECURITY_STRHASH=0 -DLUAJIT_SECURITY_STRID=0 to TARGET_CFLAGS on !Android platforms.
 ##       Here, we leave it at the defaults, because we have much less control over the environment on Android, so, better be safe than sorry ;).
