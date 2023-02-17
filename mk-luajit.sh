@@ -10,7 +10,7 @@ NDK=/opt/hostedtoolcache/ndk/r15c/x64
 
 DEST=$(cd "$(dirname "$0")" && pwd)/build/$1
 # might be linux-x86_64 or darwin-x86-64
-HOST_ARCH="darwin-x86_64"
+HOST_ARCH="mac-x86_64"
 
 # Reverse patch will succeed if the patch is already applied.
 # In case of failure, it means we should try to apply the patch.
